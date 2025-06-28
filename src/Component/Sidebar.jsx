@@ -23,22 +23,22 @@ const Sidebar = () => {
   // Progress bar color variants based on theme
   const skillBars = isDark
     ? [
-        "bg-amber-500",
-        "bg-amber-800",
-        "bg-amber-500",
+        "bg-amber-700",
         "bg-amber-600",
+        "bg-amber-900",
         "bg-amber-700",
         "bg-amber-800",
-        "bg-amber-900",
+        "bg-amber-500",
+        "bg-amber-400",
       ]
     : [
-        "bg-teal-500",
-        "bg-teal-800",
-        "bg-teal-500",
+        "bg-teal-700",
         "bg-teal-600",
+        "bg-teal-900",
         "bg-teal-700",
         "bg-teal-800",
-        "bg-teal-900",
+        "bg-teal-500",
+        "bg-teal-400",
       ];
 
   const skills = [
@@ -53,7 +53,7 @@ const Sidebar = () => {
 
   return (
     <div
-      className={`rounded-xl shadow-lg overflow-hidden flex flex-col h-full ${bgColor} p-4`}
+      className={`rounded-4xl  overflow-hidden flex flex-col h-full ${bgColor} p-4`}
     >
       {/* Sticky Profile Section */}
       <div

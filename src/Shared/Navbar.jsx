@@ -4,6 +4,7 @@ import { GiSkills } from "react-icons/gi";
 import ThemeContext from "../Context/ThemeContext";
 import CustomNavLink from "./CustomNavlink";
 import { FiMoon, FiSun } from "react-icons/fi";
+import { motion } from "framer-motion";
 
 const Navbar = () => {
   const { toggleTheme, isDark } = use(ThemeContext);
@@ -14,8 +15,8 @@ const Navbar = () => {
   const toggleBg = isDark ? "hover:text-amber-400" : "hover:text-teal-600";
 
   const links = (
-    <div className="flex flex-col md:flex-row gap-8 text-lg px-8 py-2">
-      <CustomNavLink address="home" icon={FaHome} />
+    <div className="flex flex-col md:flex-row gap-3 text-lg px-8 py-2">
+      <CustomNavLink address="/" icon={FaHome} />
       <CustomNavLink address="about" icon={FaUserAlt} />
       <CustomNavLink address="skill" icon={GiSkills} />
       <CustomNavLink address="project" icon={FaCode} />
@@ -23,12 +24,25 @@ const Navbar = () => {
   );
 
   return (
-    <nav className={`px-4 py-3 shadow-sm ${navBg}`}>
+    <nav className={`px-8 py-2 -mt-1 rounded-2xl shadow-sm ${navBg}`}>
       <div className="max-w-6xl mx-auto flex justify-between items-center">
         {/* Logo */}
-        <div className="flex items-center gap-2">
-          <h1 className={`text-xl font-bold ${navText}`}>AFROJA | Crafts</h1>
-        </div>
+        <motion.div
+      className="flex items-center gap-2 cursor-pointer"
+      initial={{ opacity: 0, x: -20 }}
+      animate={{ opacity: 1, x: 0 }}
+      transition={{ duration: 0.6 }}
+    >
+      <h1
+        className={`text-xl md:text-2xl font-extrabold tracking-tight transition-colors duration-300 ${
+          isDark ? "text-white" : "text-gray-700"
+        }`}
+      >
+        <span className={`${isDark?'text-amber-500': 'text-teal-600'}`}>{`<`}</span>
+        Afroja<span className={`${isDark ? 'text-amber-400': 'text-teal-600'}`}>|Crafts</span>
+        <span className={`${isDark?'text-white': 'text-gray-900'}`}>{`/>`}</span>
+      </h1>
+    </motion.div>
 
         {/* Desktop Nav */}
         <div className="hidden md:flex items-center gap-6">

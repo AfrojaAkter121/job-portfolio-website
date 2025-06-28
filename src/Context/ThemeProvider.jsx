@@ -20,7 +20,15 @@ const ThemeProvider = ({ children }) => {
     localStorage.setItem("theme", theme);
   }, [isDark]);
 
-  const toggleTheme = () => setIsDark((prev) => !prev);
+  const toggleTheme = () => {
+    setIsDark((prev) => {
+      const newTheme = !prev;
+      localStorage.setItem("theme", newTheme ? "dark" : "light");
+      // পেজ রিলোড করো থিম পরিবর্তনের পরে
+      window.location.reload();
+      return newTheme;
+    });
+  };
 
   return (
     <ThemeContext.Provider value={{toggleTheme, isDark}}>
