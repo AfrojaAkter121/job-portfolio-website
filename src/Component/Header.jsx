@@ -1,5 +1,5 @@
 import React, { use } from "react";
-import mainImg from "../assets/mainImg.png";
+import mainImg from "../assets/afroja.png.jpg";
 import ThemeContext from "../Context/ThemeContext";
 import HeroIntro from "./HeroIntro";
 
@@ -9,8 +9,8 @@ const Header = () => {
 
   return (
     <div
-      className={`min-h-screen flex flex-col md:flex-row justify-between  mt-6 rounded-2xl pt-8 ${
-        isDark ? "bg-gray-900 px-14" : "bg-gray-100 px-14"
+      className={` flex flex-col md:flex-row justify-between  mt-6 rounded-2xl py-8 ${
+        isDark ? "bg-gray-900 px-14" : "bg-gray-200 px-14"
       }`}
     >
       {/* Left Section */}

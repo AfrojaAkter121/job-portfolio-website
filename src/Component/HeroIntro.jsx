@@ -5,9 +5,11 @@ import ThemeContext from "../Context/ThemeContext";
 import {
   FaDownload,
   FaFacebook,
+  FaGithub,
   FaInstagram,
   FaLinkedin,
   FaTwitter,
+  FaWhatsapp,
 } from "react-icons/fa";
 
 const HeroIntro = () => {
@@ -68,10 +70,10 @@ const HeroIntro = () => {
           <FaFacebook />
         </div>
         <div className={`${commonClass} ${iconStyle}`}>
-          <FaInstagram />
+          <FaWhatsapp />
         </div>
         <div className={`${commonClass} ${iconStyle}`}>
-          <FaTwitter />
+          <FaGithub />
         </div>
         <div className={`${commonClass} ${iconStyle}`}>
           <FaLinkedin />

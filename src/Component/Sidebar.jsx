@@ -1,7 +1,7 @@
 import React, { use } from "react";
 import { FaLinkedinIn, FaWhatsapp, FaGithub } from "react-icons/fa";
 import { BsCheck2Circle } from "react-icons/bs";
-import myImg from "../assets/mainImg.png";
+import myImg from "../assets/afroja.png.jpg";
 import { FaSquareFacebook } from "react-icons/fa6";
 import ThemeContext from "../Context/ThemeContext";
 import { motion } from "framer-motion";

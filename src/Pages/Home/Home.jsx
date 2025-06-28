@@ -3,6 +3,8 @@ import Header from "../../Component/Header";
 import Sidebar from "../../Component/Sidebar";
 import Navbar from "../../Shared/Navbar";
 import ThemeContext from "../../Context/ThemeContext";
+import Contact from "../../Component/Contact";
+import FaqSection from "../../Component/FaqSection";
 
 const Home = () => {
   const { isDark } = use(ThemeContext);
@@ -26,8 +28,8 @@ const Home = () => {
         >
           <Navbar />
           <Header />
-          
-          {/* scrollable content */}
+          <Contact></Contact>
+          <FaqSection></FaqSection>
         </div>
       </div>
     </div>

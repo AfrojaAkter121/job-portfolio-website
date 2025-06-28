@@ -10,7 +10,7 @@ const Navbar = () => {
   const { toggleTheme, isDark } = use(ThemeContext);
   const [isOpen, setIsOpen] = useState(false);
 
-  const navBg = isDark ? "bg-gray-900" : "bg-gray-100";
+  const navBg = isDark ? "bg-gray-900" : "bg-gray-200";
   const navText = isDark ? "text-white" : "text-black";
   const toggleBg = isDark ? "hover:text-amber-400" : "hover:text-teal-600";
 
