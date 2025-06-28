@@ -7,7 +7,7 @@ import { motion } from "framer-motion";
 const Contact = () => {
   const { isDark } = useContext(ThemeContext);
 
-  const bgColor = isDark ? "bg-gray-900" : "bg-gray-100";
+  const bgColor = isDark ? "bg-gray-900" : "bg-gray-200";
   const textColor = isDark ? "text-white" : "text-gray-900";
   const borderColor = isDark ? "border-gray-700" : "border-gray-300";
   const focusRing = isDark ? "focus:ring-amber-400" : "focus:ring-teal-500";
@@ -19,7 +19,7 @@ const Contact = () => {
     : "bg-teal-300 text-black";
 
   return (
-    <div className={`w-full py-16 px-4 md:px-10 ${bgColor} mt-6 rounded-2xl`}>
+    <div id="contact" className={`w-full py-16 px-4 md:px-10 ${bgColor} mt-6 rounded-2xl`}>
       <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-start">
         {/* Left Section */}
         <div>

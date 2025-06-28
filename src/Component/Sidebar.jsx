@@ -9,7 +9,7 @@ import { motion } from "framer-motion";
 const Sidebar = () => {
   const { isDark } = use(ThemeContext);
 
-  const bgColor = isDark ? "bg-gray-900" : "bg-gray-100";
+  const bgColor = isDark ? "bg-gray-900" : "bg-gray-200";
   const textColor = isDark ? "text-white" : "text-black";
   const subTextColor = isDark ? "text-gray-300" : "text-gray-800";
   const borderColor = isDark ? "border-amber-500" : "border-teal-600";

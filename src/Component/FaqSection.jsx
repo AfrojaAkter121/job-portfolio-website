@@ -31,7 +31,7 @@ const FaqSection = () => {
   const [openIndex, setOpenIndex] = useState(null);
 
   const textColor = isDark ? "text-white" : "text-gray-900 ";
-  const bgColor = isDark ? "bg-gray-900" : "bg-gray-100";
+  const bgColor = isDark ? "bg-gray-900" : "bg-gray-200";
   const activeBg = isDark ? "bg-amber-500 text-black" : "bg-teal-400 text-black";
   const normalBorder = isDark ? "border-amber-500" : "border-teal-400";
   const iconColor = isDark ? "text-white" : "text-black";

@@ -5,13 +5,15 @@ import Navbar from "../../Shared/Navbar";
 import ThemeContext from "../../Context/ThemeContext";
 import Contact from "../../Component/Contact";
 import FaqSection from "../../Component/FaqSection";
+import SkillMarquee from "../../Component/SkillMarquee";
+import About from "../../Component/About";
 
 const Home = () => {
   const { isDark } = use(ThemeContext);
   return (
-    <div
-      className={`flex h-screen overflow-hidden ${
-        isDark ? "bg-gray-900" : "bg-gray-100"
+    <div id="home"
+      className={`flex h-screen overflow-hidden  ${
+        isDark ? "bg-gray-900" : "bg-gray-200"
       }`}
     >
       {/* Sidebar - Fixed Width, Full Height with padding */}
@@ -28,6 +30,8 @@ const Home = () => {
         >
           <Navbar />
           <Header />
+          <About></About>
+          <SkillMarquee></SkillMarquee>
           <Contact></Contact>
           <FaqSection></FaqSection>
         </div>

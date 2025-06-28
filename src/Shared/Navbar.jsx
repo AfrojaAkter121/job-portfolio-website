@@ -1,54 +1,80 @@
-import React, { use, useState } from "react";
-import { FaCode, FaHome, FaUserAlt } from "react-icons/fa";
+import React, { useContext, useState } from "react";
+import { FaCode, FaFileContract, FaHome, FaUserAlt } from "react-icons/fa";
 import { GiSkills } from "react-icons/gi";
 import ThemeContext from "../Context/ThemeContext";
-import CustomNavLink from "./CustomNavlink";
 import { FiMoon, FiSun } from "react-icons/fi";
+import { Link } from "react-scroll";
 import { motion } from "framer-motion";
 
 const Navbar = () => {
-  const { toggleTheme, isDark } = use(ThemeContext);
+  const { toggleTheme, isDark } = useContext(ThemeContext);
   const [isOpen, setIsOpen] = useState(false);
 
+  const baseClass = `p-3 rounded-full transition duration-300 ease-in-out ${
+    isDark ? "text-white" : "text-gray-800"
+  }`;
+
+  const activeClass = isDark ? "bg-amber-500 text-gray-800" : "bg-teal-300";
+  const toggleBg = isDark ? "hover:text-amber-400" : "hover:text-teal-600";
+  
   const navBg = isDark ? "bg-gray-900" : "bg-gray-200";
   const navText = isDark ? "text-white" : "text-black";
-  const toggleBg = isDark ? "hover:text-amber-400" : "hover:text-teal-600";
 
-  const links = (
-    <div className="flex flex-col md:flex-row gap-3 text-lg px-8 py-2">
-      <CustomNavLink address="/" icon={FaHome} />
-      <CustomNavLink address="about" icon={FaUserAlt} />
-      <CustomNavLink address="skill" icon={GiSkills} />
-      <CustomNavLink address="project" icon={FaCode} />
-    </div>
-  );
+  // সব লিঙ্কেই icon থাকছে, name দিতে হবে যদি icon না থাকে
+  const navItems = [
+    { icon: FaHome, to: "home", label: "Home" },
+    { icon: FaUserAlt, to: "about", label: "About" },
+    { icon: GiSkills, to: "skills", label: "Skills" },
+    { icon: FaCode, to: "projects", label: "Projects" },
+    { icon: FaFileContract, to: "contact", label: "Contact" },
+  ];
 
   return (
-    <nav className={`px-8 py-2 -mt-1 rounded-2xl shadow-sm ${navBg}`}>
+    <nav className={`px-8 py-3 -mt-1 rounded-2xl shadow-sm ${navBg}`}>
       <div className="max-w-6xl mx-auto flex justify-between items-center">
         {/* Logo */}
         <motion.div
-      className="flex items-center gap-2 cursor-pointer"
-      initial={{ opacity: 0, x: -20 }}
-      animate={{ opacity: 1, x: 0 }}
-      transition={{ duration: 0.6 }}
-    >
-      <h1
-        className={`text-xl md:text-2xl font-extrabold tracking-tight transition-colors duration-300 ${
-          isDark ? "text-white" : "text-gray-700"
-        }`}
-      >
-        <span className={`${isDark?'text-amber-500': 'text-teal-600'}`}>{`<`}</span>
-        Afroja<span className={`${isDark ? 'text-amber-400': 'text-teal-600'}`}>|Crafts</span>
-        <span className={`${isDark?'text-white': 'text-gray-900'}`}>{`/>`}</span>
-      </h1>
-    </motion.div>
+          className="flex items-center gap-2 cursor-pointer"
+          initial={{ opacity: 0, x: -20 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.6 }}
+        >
+          <h1
+            className={`text-xl md:text-2xl font-extrabold tracking-tight transition-colors duration-300 ${
+              isDark ? "text-white" : "text-gray-700"
+            }`}
+          >
+            <span className={`${isDark ? "text-amber-500" : "text-teal-600"}`}>
+              {"<"}
+            </span>
+            Afroja
+            <span className={`${isDark ? "text-amber-400" : "text-teal-600"}`}>
+              |Crafts
+            </span>
+            <span className={`${isDark ? "text-white" : "text-gray-900"}`}>
+              {"/>"}
+            </span>
+          </h1>
+        </motion.div>
 
         {/* Desktop Nav */}
         <div className="hidden md:flex items-center gap-6">
-          {links}
+          {navItems.map(({ icon: Icon, to }) => (
+            <Link
+              key={to}
+              to={to}
+              spy={true}
+              smooth={true}
+              offset={-370}
+              duration={500}
+              activeClass={activeClass}
+              className={baseClass}
+            >
+              <Icon className="text-2xl" />
+            </Link>
+          ))}
 
-          {/* Dark Mode Toggle with Icon */}
+          {/* Dark Mode Toggle */}
           <button
             onClick={toggleTheme}
             className={`text-2xl p-2 rounded-full border transition-colors duration-300 ${
@@ -97,8 +123,22 @@ const Navbar = () => {
 
       {/* Mobile Nav */}
       {isOpen && (
-        <div className={`md:hidden font-semibold mt-4 ${navText}`}>
-          {links}
+        <div className={`md:hidden font-semibold mt-4 ${navText} flex flex-col gap-3`}>
+          {navItems.map(({ icon: Icon, to,  }) => (
+            <Link
+              key={to}
+              to={to}
+              spy={true}
+              smooth={true}
+              offset={-200}
+              duration={500}
+              activeClass={activeClass}
+              className={baseClass}
+              onClick={() => setIsOpen(false)} // ক্লিক করলে মেনু বন্ধ হবে
+            >
+              <Icon className="text-2xl" />
+            </Link>
+          ))}
           <div className="pl-8 mt-2">
             <button className={`text-xl ${toggleBg}`} onClick={toggleTheme}>
               {isDark ? "🌞" : "🌜"}

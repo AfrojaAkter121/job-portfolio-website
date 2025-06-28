@@ -15,3 +15,24 @@
   }
 
 
+  /* Add this in index.css or your Tailwind file */
+.animated-border {
+    background: linear-gradient(270deg, #14b8a6, #f59e0b, #3b82f6);
+    background-size: 600% 600%;
+    animation: borderGradient 6s ease infinite;
+    border-radius: 1rem;
+  }
+  
+  @keyframes borderGradient {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+  
+
