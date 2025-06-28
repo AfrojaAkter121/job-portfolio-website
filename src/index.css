@@ -1,0 +1,17 @@
+@import "tailwindcss";
+@plugin "daisyui";
+@theme{
+    --color-button: #FCA5A5
+}
+
+/* Scrollbar hide */
+.scrollbar-hide {
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE 10+ */
+  }
+  
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera */
+  }
+
+
