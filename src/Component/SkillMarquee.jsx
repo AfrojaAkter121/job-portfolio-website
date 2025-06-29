@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import ThemeContext from "../Context/ThemeContext";
 import skillData from "../../public/skill.json"; // JSON data file
 
+
 const SkillMarquee = () => {
   const { isDark } = useContext(ThemeContext);
 
@@ -12,7 +13,7 @@ const SkillMarquee = () => {
   const innerCardBg = isDark ? "bg-gray-800" : "bg-white";
 
   return (
-    <section id="skills"  className={`py-14 px-5 ${bgColor} mt-6 rounded-2xl scroll-mt-[100px]`}>
+    <section id="skills" className={`py-14 px-5 ${bgColor} mt-6 rounded-2xl scroll-mt-[100px]`}>
       <h2 className={`text-3xl font-bold mb-6 text-center ${textColor}`}>
         Tech <span className={isDark ? "text-amber-400" : "text-teal-600"}>Skills</span>
       </h2>

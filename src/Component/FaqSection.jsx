@@ -41,7 +41,7 @@ const FaqSection = () => {
   };
 
   return (
-    <div className={`py-16 px-4 md:px-10 ${bgColor} rounded-2xl mt-6 rounded-2xl`}>
+    <div className={`py-16 px-4 md:px-10 ${bgColor}  mt-6 rounded-t-2xl`}>
       <div className="max-w-4xl mx-auto">
         <h2 className={`text-3xl font-bold mb-8 text-center ${textColor}`}>
           Frequently Asked{" "}

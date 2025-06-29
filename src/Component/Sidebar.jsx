@@ -1,5 +1,5 @@
 import React, { use } from "react";
-import { FaLinkedinIn, FaWhatsapp, FaGithub } from "react-icons/fa";
+import { FaLinkedinIn, FaWhatsapp, FaGithub, FaLinkedin, FaFacebook } from "react-icons/fa";
 import { BsCheck2Circle } from "react-icons/bs";
 import myImg from "../assets/afroja.png.jpg";
 import { FaSquareFacebook } from "react-icons/fa6";
@@ -7,8 +7,7 @@ import ThemeContext from "../Context/ThemeContext";
 import { motion } from "framer-motion";
 
 const Sidebar = () => {
-  const { isDark} = use(ThemeContext);
-  
+  const { isDark } = use(ThemeContext);
 
   const bgColor = isDark ? "bg-gray-900" : "bg-gray-200";
   const textColor = isDark ? "text-white" : "text-black";
@@ -52,9 +51,11 @@ const Sidebar = () => {
     { skill: "Node Js", percent: 45 },
   ];
 
+  const commonClass = `p-2 rounded-full text-xl shadow-md cursor-pointer transition-transform duration-300 hover:scale-110`;
 
-
-
+  const iconStyle = isDark
+    ? "bg-amber-400 text-gray-900"
+    : "bg-teal-400 text-gray-900";
 
   return (
     <div
@@ -133,26 +134,49 @@ const Sidebar = () => {
             ))}
           </div>
           {/* Sticky Footer / Social Section */}
-          <div
-            className={`px-6  ${bgColor} z-10  ${borderColor}`}
-          >
+          <div className={`px-6  ${bgColor} z-10  ${borderColor}`}>
             <div
               className={`text-sm font-semibold text-center mb-3 ${cvTextColor}`}
             >
               DOWNLOAD CV <span className="ml-1">📄</span>
             </div>
 
-            <div className="flex justify-center gap-4 text-xl">
-              {[FaLinkedinIn, FaWhatsapp, FaGithub, FaSquareFacebook].map(
-                (Icon, i) => (
-                  <div
-                    key={i}
-                    className={`${socialBg} w-8 h-8 flex justify-center items-center rounded-full p-2`}
-                  >
-                    <Icon />
-                  </div>
-                )
-              )}
+            <div className="flex gap-4 items-center justify-start">
+              <a
+                href="https://www.facebook.com/profile.php?id=100092609836093"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`${commonClass} ${iconStyle}`}
+              >
+                <FaFacebook />
+              </a>
+
+              <a
+                href="https://wa.me/8801314381390"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`${commonClass} ${iconStyle}`}
+              >
+                <FaWhatsapp />
+              </a>
+
+              <a
+                href="https://github.com/AfrojaAkter121"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`${commonClass} ${iconStyle}`}
+              >
+                <FaGithub />
+              </a>
+
+              <a
+                href="https://www.linkedin.com/in/your-linkedin-username"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`${commonClass} ${iconStyle}`}
+              >
+                <FaLinkedin />
+              </a>
             </div>
           </div>
         </div>

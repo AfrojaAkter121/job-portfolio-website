@@ -6,9 +6,9 @@ import {
   FaDownload,
   FaFacebook,
   FaGithub,
-  FaInstagram,
+
   FaLinkedin,
-  FaTwitter,
+
   FaWhatsapp,
 } from "react-icons/fa";
 
@@ -40,25 +40,24 @@ const HeroIntro = () => {
           Afroja
         </span>
         ,<br />
-       <span className={`${headingColor}`}>
-       <TypeAnimation
-          sequence={[
-            "MERN Stack Developer",
-            2000,
-            "Frontend Enthusiast",
-            2000,
-            "React.js Lover",
-            2000,
-            "JavaScript Explorer",
-            2000,
-          ]}
-          wrapper="span"
-          speed={50}
-          repeat={Infinity}
-          className={`block mt-2`}
-           
-        />
-       </span>
+        <span className={`${headingColor}`}>
+          <TypeAnimation
+            sequence={[
+              "MERN Stack Developer",
+              2000,
+              "Frontend Enthusiast",
+              2000,
+              "React.js Lover",
+              2000,
+              "JavaScript Explorer",
+              2000,
+            ]}
+            wrapper="span"
+            speed={50}
+            repeat={Infinity}
+            className={`block mt-2`}
+          />
+        </span>
       </h1>
 
       <p className={`max-w-md ${subTextColor}`}>
@@ -68,18 +67,41 @@ const HeroIntro = () => {
       </p>
 
       <div className="flex gap-4 items-center justify-start">
-        <div className={`${commonClass} ${iconStyle}`}>
+        <a
+          href="https://www.facebook.com/profile.php?id=100092609836093"
+          target="_blank"
+          rel="noopener noreferrer"
+          className={`${commonClass} ${iconStyle}`}
+        >
           <FaFacebook />
-        </div>
-        <div className={`${commonClass} ${iconStyle}`}>
+        </a>
+
+        <a
+          href="https://wa.me/8801314381390"
+          target="_blank"
+          rel="noopener noreferrer"
+          className={`${commonClass} ${iconStyle}`}
+        >
           <FaWhatsapp />
-        </div>
-        <div className={`${commonClass} ${iconStyle}`}>
+        </a>
+
+        <a
+          href="https://github.com/AfrojaAkter121"
+          target="_blank"
+          rel="noopener noreferrer"
+          className={`${commonClass} ${iconStyle}`}
+        >
           <FaGithub />
-        </div>
-        <div className={`${commonClass} ${iconStyle}`}>
+        </a>
+
+        <a
+          href="https://www.linkedin.com/in/your-linkedin-username"
+          target="_blank"
+          rel="noopener noreferrer"
+          className={`${commonClass} ${iconStyle}`}
+        >
           <FaLinkedin />
-        </div>
+        </a>
       </div>
 
       <motion.a

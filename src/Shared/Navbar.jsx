@@ -33,7 +33,7 @@ const Navbar = () => {
   ];
 
   return (
-    <div className="animated-border rounded-2xl p-[2px] mt-2 sticky top-0 z-50">
+    <div className="animated-border2 rounded-2xl p-[1px] mt-2 sticky top-0 z-50">
        <nav  className={`px-8  py-3 rounded-[0.9rem] shadow-sm -mt-1 ${
       navBg
     }`}>

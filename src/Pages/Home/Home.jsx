@@ -9,6 +9,8 @@ import SkillMarquee from "../../Component/SkillMarquee";
 import About from "../../Component/About";
 import { Projects } from "../../Component/Projects";
 import { motion, AnimatePresence } from "framer-motion";
+import Footer from "../../Shared/Footer";
+
 
 const Home = () => {
   const { isDark, sidebar } = use(ThemeContext);
@@ -54,6 +56,7 @@ const Home = () => {
           <Projects />
           <Contact />
           <FaqSection />
+          <Footer></Footer>
         </motion.div>
       </div>
     </div>

@@ -1,11 +1,32 @@
+import React, { useContext } from "react";
 import { FaExternalLinkAlt, FaCode, FaInfoCircle } from "react-icons/fa";
 import { Link } from "react-router";
+import ThemeContext from "../Context/ThemeContext";
 
 const ProjectCard = ({ project }) => {
+  const { isDark } = useContext(ThemeContext);
+
+  // Background and text colors based on theme
+  const bgColor = isDark ? "bg-gray-900" : "bg-gray-200";
+  const textColor = isDark ? "text-white" : "text-gray-900";
+
+  // For smaller text, lighter/darker accordingly
+  const subTextColor = isDark ? "text-white" : "text-gray-900";
+
+  // Badge colors
+  const badgeBg = isDark ? "bg-amber-500" : "bg-teal-800";
+  const badgeText = isDark ? "text-black" : "text-gray-100";
+
+  // Button colors
+  const liveBtnBg = isDark ? "bg-indigo-800 hover:bg-amber-600" : "bg-indigo-800  hover:bg-teal-600";
+  const codeBtnBg = isDark ? "bg-rose-500 hover:bg-amber-600" : "bg-rose-500 hover:bg-teal-600";
+  const detailsBtnBg = isDark ? "bg-cyan-400 text-black hover:bg-amber-600" : "bg-cyan-400 hover:bg-teal-600";
+
   return (
-    <div
+    <div className="animated-border2 p-[2px] ">
+          <div
       key={project.id}
-      className="bg-slate-900 rounded-xl shadow-xl p-6 flex flex-col md:flex-row gap-6 items-start hover:shadow-indigo-600/10 transition"
+      className={`${bgColor} rounded-xl  mx-auto shadow-lg shadow-gray-700 p-6 flex flex-col md:flex-row gap-6 items-start transition`}
     >
       {/* Image */}
       <img
@@ -16,24 +37,16 @@ const ProjectCard = ({ project }) => {
 
       {/* Content */}
       <div className="flex-1 space-y-4">
-        <h3 className="text-2xl font-bold text-indigo-300">{project.name}</h3>
-        <p className="text-gray-300 text-sm">{project.description}</p>
+        <h3 className={`text-2xl font-bold ${textColor}`}>{project.project_name}</h3>
+        <p className={`text-sm ${subTextColor}`}>{project.description}</p>
 
-        {/* Feature list (if exists) */}
-        {project.features && project.features.length > 0 && (
-          <ul className="list-disc ml-5 text-gray-400 text-sm space-y-1">
-            {project.features.map((feature, idx) => (
-              <li key={idx}>{feature}</li>
-            ))}
-          </ul>
-        )}
 
         {/* Technology Stack Badges */}
         <div className="flex flex-wrap gap-2 pt-2">
           {project.tech_stack?.map((tech, index) => (
             <span
               key={index}
-              className="bg-indigo-700 text-white text-xs px-3 py-1 rounded-full"
+              className={`${badgeBg} ${badgeText}  text-xs px-3 py-1 rounded-full`}
             >
               {tech}
             </span>
@@ -46,7 +59,7 @@ const ProjectCard = ({ project }) => {
             href={project.live_link}
             target="_blank"
             rel="noopener noreferrer"
-            className="bg-green-500 hover:bg-green-600 text-white px-4 py-1.5 rounded-md text-sm transition flex items-center gap-2"
+            className={`${liveBtnBg} text-white px-4 py-1.5 rounded-md text-sm transition flex items-center gap-2`}
           >
             <FaExternalLinkAlt /> Live Site
           </a>
@@ -54,18 +67,19 @@ const ProjectCard = ({ project }) => {
             href={project.code_link}
             target="_blank"
             rel="noopener noreferrer"
-            className="bg-gray-700 hover:bg-gray-800 text-white px-4 py-1.5 rounded-md text-sm transition flex items-center gap-2"
+            className={`${codeBtnBg} text-white px-4 py-1.5 rounded-md text-sm transition flex items-center gap-2`}
           >
             <FaCode /> GitHub
           </a>
           <Link
             to={`/project/${project.id}`}
-            className="bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-1.5 rounded-md text-sm transition flex items-center gap-2"
+            className={`${detailsBtnBg} px-4 py-1.5 rounded-md text-sm transition flex items-center gap-2`}
           >
             <FaInfoCircle /> Details
           </Link>
         </div>
       </div>
+    </div>
     </div>
   );
 };
