@@ -7,7 +7,8 @@ import ThemeContext from "../Context/ThemeContext";
 import { motion } from "framer-motion";
 
 const Sidebar = () => {
-  const { isDark } = use(ThemeContext);
+  const { isDark} = use(ThemeContext);
+  
 
   const bgColor = isDark ? "bg-gray-900" : "bg-gray-200";
   const textColor = isDark ? "text-white" : "text-black";
@@ -51,9 +52,13 @@ const Sidebar = () => {
     { skill: "Node Js", percent: 45 },
   ];
 
+
+
+
+
   return (
     <div
-      className={`rounded-4xl  overflow-hidden flex flex-col h-full ${bgColor} p-4`}
+      className={`rounded-r-4xl  overflow-hidden flex flex-col h-full ${bgColor} px-7 py-4`}
     >
       {/* Sticky Profile Section */}
       <div

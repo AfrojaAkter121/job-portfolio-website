@@ -4,6 +4,7 @@ import ThemeContext from "./ThemeContext";
 
 
 const ThemeProvider = ({ children }) => {
+  const [sidebar, setSidebar] = useState(true)
   const [isDark, setIsDark] = useState(() => {
     const storedTheme = localStorage.getItem("theme");
     if (storedTheme) return storedTheme === "dark";
@@ -25,13 +26,20 @@ const ThemeProvider = ({ children }) => {
       const newTheme = !prev;
       localStorage.setItem("theme", newTheme ? "dark" : "light");
       // পেজ রিলোড করো থিম পরিবর্তনের পরে
-      window.location.reload();
+      // window.location.reload();
       return newTheme;
     });
   };
 
+  const toggleSidebar = () => {
+    setSidebar((prev) => {
+      const newTheme = !prev;
+      return newTheme
+    });
+}
+
   return (
-    <ThemeContext.Provider value={{toggleTheme, isDark}}>
+    <ThemeContext.Provider value={{toggleTheme, isDark, sidebar, toggleSidebar}}>
       {children}
     </ThemeContext.Provider>
   );

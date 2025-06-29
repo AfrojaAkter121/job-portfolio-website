@@ -19,7 +19,7 @@ const Contact = () => {
     : "bg-teal-300 text-black";
 
   return (
-    <div id="contact" className={`w-full py-16 px-4 md:px-10 ${bgColor} mt-6 rounded-2xl`}>
+    <div id="contact" className={` scroll-mt-[100px] w-full py-16 px-4 md:px-10 ${bgColor} mt-6 rounded-2xl`}>
       <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-start">
         {/* Left Section */}
         <div>

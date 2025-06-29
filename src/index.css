@@ -4,6 +4,12 @@
     --color-button: #FCA5A5
 }
 
+body {
+  scroll-behavior: smooth;
+}
+html {
+  scroll-behavior: smooth;
+}
 /* Scrollbar hide */
 .scrollbar-hide {
     scrollbar-width: none; /* Firefox */
@@ -35,4 +41,5 @@
     }
   }
   
+
 

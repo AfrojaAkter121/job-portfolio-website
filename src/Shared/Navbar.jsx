@@ -5,9 +5,12 @@ import ThemeContext from "../Context/ThemeContext";
 import { FiMoon, FiSun } from "react-icons/fi";
 import { Link } from "react-scroll";
 import { motion } from "framer-motion";
+import { BsMenuButton, BsMenuButtonFill } from "react-icons/bs";
+import { RiMenuFold2Fill } from "react-icons/ri";
+import { SiSkillshare } from "react-icons/si";
 
 const Navbar = () => {
-  const { toggleTheme, isDark } = useContext(ThemeContext);
+  const { toggleTheme, isDark,sidebar,  toggleSidebar } = useContext(ThemeContext);
   const [isOpen, setIsOpen] = useState(false);
 
   const baseClass = `p-3 rounded-full transition duration-300 ease-in-out ${
@@ -24,13 +27,16 @@ const Navbar = () => {
   const navItems = [
     { icon: FaHome, to: "home", label: "Home" },
     { icon: FaUserAlt, to: "about", label: "About" },
-    { icon: GiSkills, to: "skills", label: "Skills" },
+    { icon: SiSkillshare, to: "skills", label: "Skills" },
     { icon: FaCode, to: "projects", label: "Projects" },
     { icon: FaFileContract, to: "contact", label: "Contact" },
   ];
 
   return (
-    <nav className={`px-8 py-3 -mt-1 rounded-2xl shadow-sm ${navBg}`}>
+    <div className="animated-border rounded-2xl p-[2px] mt-2 sticky top-0 z-50">
+       <nav  className={`px-8  py-3 rounded-[0.9rem] shadow-sm -mt-1 ${
+      navBg
+    }`}>
       <div className="max-w-6xl mx-auto flex justify-between items-center">
         {/* Logo */}
         <motion.div
@@ -60,18 +66,12 @@ const Navbar = () => {
         {/* Desktop Nav */}
         <div className="hidden md:flex items-center gap-6">
           {navItems.map(({ icon: Icon, to }) => (
-            <Link
-              key={to}
-              to={to}
-              spy={true}
-              smooth={true}
-              offset={-370}
-              duration={500}
+            <a href={`#${to}`}
               activeClass={activeClass}
               className={baseClass}
             >
               <Icon className="text-2xl" />
-            </Link>
+            </a>
           ))}
 
           {/* Dark Mode Toggle */}
@@ -85,6 +85,9 @@ const Navbar = () => {
             title={isDark ? "Switch to Light Mode" : "Switch to Dark Mode"}
           >
             {isDark ? <FiSun /> : <FiMoon />}
+          </button>
+          <button onClick={toggleSidebar}>
+          <RiMenuFold2Fill size={25} />
           </button>
         </div>
 
@@ -147,6 +150,7 @@ const Navbar = () => {
         </div>
       )}
     </nav>
+    </div>
   );
 };
 

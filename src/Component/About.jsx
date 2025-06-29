@@ -14,7 +14,7 @@ const About = () => {
   return (
     <section
       id="about"
-      className={`${bgColor} py-16 px-6 md:px-12 rounded-2xl max-w-7xl mx-auto mt-6`}
+      className={`${bgColor} scroll-mt-[100px] py-16 px-6 md:px-12 rounded-2xl max-w-7xl mx-auto mt-6`}
     >
       <div className="flex flex-col md:flex-row items-center gap-10">
         {/* Left side - Images */}

@@ -34,13 +34,14 @@ const HeroIntro = () => {
     >
       <h2 className={`text-2xl ${subTextColor}`}>Hello!</h2>
 
-      <h1 className={`text-3xl font-semibold leading-snug ${headingColor}`}>
+      <h1 className={`text-3xl font-semibold leading-snug  ${headingColor}`}>
         I'm{" "}
         <span className={isDark ? "text-amber-500" : "text-teal-500"}>
           Afroja
         </span>
         ,<br />
-        <TypeAnimation
+       <span className={`${headingColor}`}>
+       <TypeAnimation
           sequence={[
             "MERN Stack Developer",
             2000,
@@ -54,9 +55,10 @@ const HeroIntro = () => {
           wrapper="span"
           speed={50}
           repeat={Infinity}
-          className={`block mt-2 ${isDark ? 'text-white': 'text-gray-900'}`}
+          className={`block mt-2`}
            
         />
+       </span>
       </h1>
 
       <p className={`max-w-md ${subTextColor}`}>

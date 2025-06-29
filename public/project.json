@@ -1,0 +1,59 @@
+[
+    {
+        "id": 1,
+      "project_name": "PickMyApp",
+      "image": "https://i.postimg.cc/kXXvDYzh/all-devices-black.png",
+      "description": "PickMyApp is a dynamic application sharing platform where users can explore, view, and submit information about various mobile or web applications. Each app listing includes details like name, category, developer, and description. Users can click to view detailed information about each app, making it easier to find helpful or trending tools. The platform ensures user authentication to manage submissions and integrates a modern responsive design to provide a smooth browsing experience.",
+      "live_link": "https://labender-app-store.web.app/",
+      "code_link": "https://github.com/AfrojaAkter121/pick-my-app-project?tab=readme-ov-file",
+      "future_idea": "Plan to add features like app ratings, a personal favorite list, download counters, and category-based filtering for enhanced user experience.",
+      "problems_faced": [
+        {
+          "problem": "Faced issues while setting up Firebase Authentication for email/password login.",
+          "solution": "Enabled Email/Password method in Firebase Console and integrated proper Firebase config to securely authenticate users on the client side."
+        }
+      ],
+      "tech_stack": ["React", "Firebase (Auth)", "Vite", "Tailwind CSS"]
+    },
+    {
+        "id": 2,
+      "project_name": "PassionPoint",
+      "image": "https://i.postimg.cc/cJQnFfPn/all-devices-black-1.png",
+      "description": "PassionPoint is a hobby-based group management web application where users can create new hobby groups, join existing ones, and manage their group activities. Each group includes information such as description, availability, leader details, and location. The app features personalized dashboards for group leaders and members, secure routes for group actions, and smooth user interaction with animation and modern UI components. It encourages creativity, collaboration, and sharing hobbies in a vibrant digital community.",
+      "live_link": "https://passion-point-project.web.app/",
+      "code_link": "https://github.com/AfrojaAkter121/passoin-point-project",
+      "future_idea": "Planning to implement leaderboard for top contributors, user-based reviews, and community achievement badges.",
+      "problems_faced": [
+        {
+          "problem": "Faced issues connecting to MongoDB and accessing data due to configuration and permission errors.",
+          "solution": "Resolved the issue by correctly setting up MongoDB Atlas configuration and securing credentials using environment variables."
+        },
+        {
+          "problem": "Private routes were accessible without user login.",
+          "solution": "Implemented Firebase Authentication and custom PrivateRoute component to ensure route protection."
+        }
+      ],
+      "tech_stack": ["React", "Firebase Auth", "Node.js", "Express.js", "MongoDB", "Tailwind CSS", "Framer Motion"]
+    },
+    {
+        "id": 3,
+      "project_name": "JourneyNest",
+      "image": "https://i.postimg.cc/DyZ17J49/all-devices-black-2.png",
+      "description": "JourneyNest is a travel blogging platform designed to allow users to share their travel stories, read experiences from others, and interact with posts through reactions and comments. The application includes a user-friendly interface, a secure login system, and features like post creation, comment submission, and dynamic reactions. JourneyNest aims to build a community for travel lovers where they can inspire, explore, and connect through engaging travel content.",
+      "live_link": "https://journey-nest-project.web.app/",
+      "code_link": "https://github.com/AfrojaAkter121/journey-nest-project",
+      "future_idea": "Future updates will include real-time group chat, user following system, and location-based blog filtering to enhance interaction and discoverability.",
+      "problems_faced": [
+        {
+          "problem": "Faced difficulties while implementing the comment system with authenticated user identity and proper data saving.",
+          "solution": "Solved the issue by verifying users with Firebase Authentication and storing user ID with timestamps in Firestore for each comment."
+        },
+        {
+          "problem": "Encountered authorization errors while using Firebase token for secure API access.",
+          "solution": "Resolved it by using Firebase's `getIdToken()` to generate access tokens and sending them in the `Authorization` header, then verifying them in backend middleware."
+        }
+      ],
+      "tech_stack":  ["React", "Firebase Auth", "Node.js", "Express.js", "MongoDB", "Tailwind CSS", "Framer Motion"]
+    }
+  ]
+  

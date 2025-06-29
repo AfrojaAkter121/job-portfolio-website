@@ -7,34 +7,54 @@ import Contact from "../../Component/Contact";
 import FaqSection from "../../Component/FaqSection";
 import SkillMarquee from "../../Component/SkillMarquee";
 import About from "../../Component/About";
+import { Projects } from "../../Component/Projects";
+import { motion, AnimatePresence } from "framer-motion";
 
 const Home = () => {
-  const { isDark } = use(ThemeContext);
+  const { isDark, sidebar } = use(ThemeContext);
+
   return (
-    <div id="home"
-      className={`flex h-screen overflow-hidden  ${
-        isDark ? "bg-gray-900" : "bg-gray-200"
+    <div
+      className={`flex h-screen overflow-hidden scroll-smooth ${
+        isDark ? "bg-gray-800" : "bg-white"
       }`}
     >
-      {/* Sidebar - Fixed Width, Full Height with padding */}
-      <div className="w-[300px] h-screen p-2 sticky top-0 rounded-2xl">
-        <Sidebar />
-      </div>
+      {/* Sidebar - Fixed Width, Full Height */}
+      <AnimatePresence>
+        {sidebar && (
+          <motion.div
+            initial={{ x: -300, opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            exit={{ x: -300, opacity: 0 }}
+            transition={{ duration: 1.4, ease: "easeInOut" }}
+            className="w-[300px] h-screen pr-2 sticky top-0 z-50"
+          >
+            <Sidebar />
+          </motion.div>
+        )}
+      </AnimatePresence>
 
-      {/* Main Content - Scrollable, padding around */}
-      <div className="flex-1 overflow-y-auto ">
-        <div
-          className={`max-w-5xl mx-auto min-h-screen ${
+      {/* Main Content */}
+      <div className="flex-1 overflow-y-auto">
+        <motion.div
+          animate={{
+            width: sidebar ? 'max-w-5xl' : 'max-w-7xl', // <-- Main Animation Change
+            transition: { duration: 1.4, ease: "easeInOut" },
+          }}
+          className={`${
+            sidebar ? "max-w-5xl" : "max-w-7xl"
+          } mx-auto min-h-screen ${
             isDark ? "bg-gray-800" : "bg-white"
-          } p-6`}
+          } pt-5 transition-all duration-500 ease-in-out`}
         >
           <Navbar />
           <Header />
-          <About></About>
-          <SkillMarquee></SkillMarquee>
-          <Contact></Contact>
-          <FaqSection></FaqSection>
-        </div>
+          <About />
+          <SkillMarquee />
+          <Projects />
+          <Contact />
+          <FaqSection />
+        </motion.div>
       </div>
     </div>
   );

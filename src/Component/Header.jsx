@@ -10,8 +10,9 @@ const Header = () => {
  const shadowColor = isDark ? "#f59e0b" : "#0f766e"; // amber-500 or teal-800
 
   return (
-    <div
-      className={` flex flex-col md:flex-row justify-between  mt-6 rounded-2xl py-8 ${
+    <section
+    id="home"
+      className={`scroll-mt-[100px] flex flex-col md:flex-row justify-between  mt-6 rounded-2xl py-8 ${
         isDark ? "bg-gray-900 px-14" : "bg-gray-200 px-14"
       }`}
     >
@@ -42,7 +43,7 @@ const Header = () => {
         }}
       />
     </div>
-    </div>
+    </section>
   );
 };
 
