@@ -29,7 +29,7 @@ const Home = () => {
             animate={{ x: 0, opacity: 1 }}
             exit={{ x: -300, opacity: 0 }}
             transition={{ duration: 1.4, ease: "easeInOut" }}
-            className="w-[300px] h-screen pr-2 sticky top-0 z-50"
+            className="hidden md:block w-[300px] h-screen pr-2 sticky top-0 z-50"
           >
             <Sidebar />
           </motion.div>

@@ -17,30 +17,32 @@ const About = () => {
       className={`${bgColor} py-20 px-6 md:px-12 rounded-2xl max-w-7xl mx-auto`}
     >
       <div className="flex flex-col md:flex-row items-center gap-12">
-        {/* Left: Animated Images */}
-        <div className="relative w-72 h-72">
-          {/* Up-Down Animation on Scroll */}
+        {/* Responsive Image Container */}
+        <div className="relative w-full max-w-sm h-[320px] md:w-[300px] md:h-[300px] mx-auto">
+          {/* Image 1 */}
           <motion.img
             src="https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?auto=format&fit=crop&w=400&q=80"
             alt="About Image 1"
-            className={`w-70 h-60 object-cover rounded-lg shadow-lg absolute bottom-20 right-20 border-4 ${borderColor}`}
-            whileInView={{ y: [0, -20, 0] }}
+            className={`w-[250px] h-[250px] md:w-[280px] md:h-[240px] object-cover rounded-lg shadow-lg md:absolute border-4 ${borderColor} z-10
+              bottom-20 right-6 md:bottom-20 md:right-20
+            `}
+            whileInView={{ y: [0, -30, 0] }}
             transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
             viewport={{ once: false, amount: 0.5 }}
           />
 
-          {/* Left-Right Animation on Scroll */}
+          {/* Image 2 */}
           <motion.img
             src={myImg}
             alt="About Image 2"
-            className={`w-70 h-60 object-cover rounded-lg shadow-lg absolute top-30 left-10 border-4 ${borderColor}`}
-            whileInView={{ x: [0, 20, 0] }}
+            className={`w-[250px] h-[250px] md:w-[280px] md:h-[240px] object-cover rounded-lg shadow-lg absolute border-4 ${borderColor} z-20
+              -top-0 left-6 md:top-30 md:left-10
+            `}
+            whileInView={{ x: [0, 30, 0] }}
             transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 1 }}
             viewport={{ once: false, amount: 0.5 }}
           />
         </div>
-
-     
       </div>
     </section>
   );

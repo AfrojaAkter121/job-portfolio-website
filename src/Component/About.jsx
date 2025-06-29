@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import ThemeContext from "../Context/ThemeContext";
 import AboutImages from "./AboutImages";
+import "aos/dist/aos.css";
 
 const About = () => {
   const { isDark } = useContext(ThemeContext);
@@ -14,16 +15,17 @@ const About = () => {
   return (
     <section
       id="about"
+      // data-aos="fade-up"
       className={`${bgColor} scroll-mt-[100px] py-16 px-6 md:px-12 rounded-2xl max-w-7xl mx-auto mt-6`}
     >
       <div className="flex flex-col md:flex-row items-center gap-10">
         {/* Left side - Images */}
-        <div className="w-1/2 flex gap-6">
+        <div className="md:w-1/2 flex gap-6">
             <AboutImages></AboutImages>
         </div>
 
         {/* Right side - About Text */}
-        <div className="w-1/2">
+        <div className="md:w-1/2">
           <h2
             className={`text-4xl font-bold mb-6 ${textColor}`}
           >

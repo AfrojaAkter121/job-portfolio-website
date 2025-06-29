@@ -33,8 +33,8 @@ const Navbar = () => {
   ];
 
   return (
-    <div className="animated-border2 rounded-2xl p-[1px] mt-2 sticky top-0 z-50">
-       <nav  className={`px-8  py-3 rounded-[0.9rem] shadow-sm -mt-1 ${
+    <div className="animated-border2 rounded-2xl p-[1px] sticky top-0 z-50">
+       <nav  className={`px-8  py-3 rounded-[0.9rem] shadow-sm -mt-2 ${
       navBg
     }`}>
       <div className="max-w-6xl mx-auto flex justify-between items-center">
@@ -127,20 +127,13 @@ const Navbar = () => {
       {/* Mobile Nav */}
       {isOpen && (
         <div className={`md:hidden font-semibold mt-4 ${navText} flex flex-col gap-3`}>
-          {navItems.map(({ icon: Icon, to,  }) => (
-            <Link
-              key={to}
-              to={to}
-              spy={true}
-              smooth={true}
-              offset={-200}
-              duration={500}
+          {navItems.map(({ icon: Icon, to }) => (
+            <a href={`#${to}`}
               activeClass={activeClass}
               className={baseClass}
-              onClick={() => setIsOpen(false)} // ক্লিক করলে মেনু বন্ধ হবে
             >
               <Icon className="text-2xl" />
-            </Link>
+            </a>
           ))}
           <div className="pl-8 mt-2">
             <button className={`text-xl ${toggleBg}`} onClick={toggleTheme}>
